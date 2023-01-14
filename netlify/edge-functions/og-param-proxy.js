@@ -5,8 +5,8 @@ export default async (request, context) => {
     const response = await context.next()
     const page = await response.text()
     
-    const search = 'test site'
-    const replace = `${url.searchParams.toString()}`
+    const search = 'Logo/full+logo+small.jpg'
+    const replace = `Upscaled+Images/${atob(url.searchParams.toString())}.jpg`
     
     return new Response(page.replaceAll(search, replace), response);
 }
